@@ -41,6 +41,7 @@ body {
     margin-bottom: 0.5em;
 }
 
+/*Form custom*/
 
 .form-register{          
     grid-area:form-register;    
@@ -78,14 +79,83 @@ body {
     margin: 0 auto;
     
 }
-.checkbox{
+
+/*Checkbox custom*/
+
+.terms{
     display: block;
     font-size: 1em; 
-    text-shadow: 1px 3px 6px #767676;
-    color:#111111;
-    accent-color: #0DBDBD;    
+    text-shadow: 1px 4px 4px rgba(0, 0, 0, 0.25);    
+    color:#111111;       
     align-self: center;
 }
+
+.checkbox {
+    display: block;
+    position: relative;   
+    padding-left: 2em;
+    margin-bottom: 12px;
+    cursor: pointer;    
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    
+  }
+  .checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1.25em;
+    width: 1.25em;
+    background-color: #e6e6e6;
+    margin-right: 1em;    
+    border-radius: 2px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+  }
+
+  .checkbox:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+
+  .checkbox input:checked ~ .checkmark {
+    background-color: #0DBDBD;
+  }
+
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  .checkbox input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+ .checkbox .checkmark:after {
+    left: 7px;
+    top: 3px; 
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+
+/*Button custom*/
 
 .form-info-submit{
     width: 81px;
@@ -99,6 +169,19 @@ body {
     margin-left: auto; 
     align-self: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*.image-data {
     margin: 0 auto;
     display: block;    
