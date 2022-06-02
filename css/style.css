@@ -171,6 +171,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     font-family: 'Nunito', sans-serif;  
     margin-left: auto;     
     align-self: center;
+    cursor: pointer;
 }
 
 /*Login-screen*/
@@ -197,7 +198,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background: #0DBDBD;
     border-color:transparent;   
     font-size: 2.25em;
-    color:white;        
+    color:white;  
+    cursor: pointer;      
 }
 
 
