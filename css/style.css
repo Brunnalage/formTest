@@ -64,7 +64,7 @@ body {
     margin-top: 5px;
     font-size: 0.875em; 
     display:block;
-    color:#767676
+    color:#767676;
     
 }
 
@@ -77,10 +77,20 @@ body {
     width: 100%;
     flex: auto;
     margin: 0 auto;
+    height: 2.5em;
     
 }
+#birthday{
+    font-family: 'Nunito', sans-serif;
+    color:#767676;
+}
 
-/*Checkbox custom*/
+
+
+
+input[type="date"]::-webkit-calendar-picker-indicator {          
+    background: url("../img/expand_more_black_24dp.svg") no-repeat;    
+}
 
 .terms{
     display: block;
