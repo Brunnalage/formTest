@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" type="text/css" href="css/reset.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
@@ -35,7 +36,7 @@
                     </div>
                     <div class="form-register-info">
                         <label for="phone">Phone</label>
-                        <input type="tel" id="telefone" class="basic-input" placeholder="(83)00000-0000">
+                        <input type="tel" id="phone" class="basic-input" placeholder="(83)00000-0000">
                     </div>
                     <div class="form-register-info">
                         <label for="password">Password</label>
@@ -45,25 +46,30 @@
                         <label for="Birthday">Birthday</label>
                         <input type="date" id="birthday" class="basic-input" required>
                     </div>
-                    <div class="terms">
-                        <label class="checkbox"><input type="checkbox" checked="checked"> I accepted the terms and
-                            privacy<span class="checkmark"></span></label>
+                    <div class="form-register-info">
+                        <div class="terms">
+                            <label class="checkbox"><input type="checkbox" checked="checked"> I accepted the terms and
+                                privacy<span class="checkmark"></span></label>
+                        </div>
                     </div>
-                    <button class="form-info-submit" type="submit">Register</button>
-                </form>
+                    <div class="form-register-info">
+                        <button class="form-info-submit" type="submit">Register</button>
+                    </div>
+            </div>
+            </form>
             </div>
         </section>
 
         <section class="container">
-            <div>
-            <div class="header-login">
-                <img class="image-data" src="img/pictureData.png">
-                <h1 class="principal-title">Sucess!</h1>
+            <div class="login">
+                <div class="header-login">
+                    <img class="image-data" src="img/pictureData.png">
+                    <h1 class="principal-title">Sucess!</h1>
+                </div>
+                <div class="go-back">
+                    <button class="button-go-back" type="submit">Go Back!</button>
+                </div>
             </div>
-            <div class="go-back">
-                <button class="button-go-back" type="submit">Go Back!</button>
-            </div>
-        </div>
         </section>
     </main>
 </body>
