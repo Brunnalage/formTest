@@ -1,0 +1,11 @@
+.error{
+    display: none;
+}
+
+.invalid  .error {      
+    display: block;
+    color: #ff8e8e;
+    font-size: 0.825em;
+    margin-left: 0.5rem;
+    margin-top: 0.3rem;
+}
