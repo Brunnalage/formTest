@@ -23,7 +23,7 @@
                     <img class="image-data" src="img/pictureData.png">
                     <h1 class="principal-title">Intern Sign Up</h1>
                 </div>
-                <form class="form-register">
+                <form class="form-register" id="register-form" name="register-form">
                     <div class="form-register-info">
                         <label for="fullName">Full Name*</label>
                         <input type="text" id="fullName" name="name" class="basic-input" placeholder="Name"> 
@@ -52,7 +52,7 @@
                     <div class="form-register-info">
                         <div class="terms">
                             <label class="checkbox" id="labelCheckbox">
-                                <input type="checkbox" checked="checked" id="checkbox"> I accepted the terms and
+                                <input type="checkbox" name= 'checkbox' checked="checked" id="checkbox"> I accepted the terms and
                                 privacy<span class="checkmark" required></span></label>
                                 <span class="error">You must accept the terms</span>
                         </div>
@@ -76,8 +76,7 @@
                 </div>
             </div>
         </section>
-    </main>
-    <script src="js/main.js"></script>
-<script src="js/validation.js"></script>
+    </main>    
+<script src="/index.js"></script>
 </body>
 </html>
