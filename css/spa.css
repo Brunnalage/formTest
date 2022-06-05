@@ -1,0 +1,11 @@
+.container-login{
+    display: none;
+}
+
+.success .container-login{
+    display: grid;
+}
+
+.redirection .container-register{   
+    display: none;
+}
