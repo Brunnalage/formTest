@@ -1,4 +1,8 @@
-function validation() {
+const button = document.getElementById('btn-register')
+const buttonBack = document.getElementById("btn-back")
+
+button.addEventListener('click', event => {
+    event.preventDefault();
     
     var nameValue = document.getElementById('fullName').value;
     var emailValue = document.getElementById('email').value;
@@ -44,22 +48,34 @@ function validation() {
 
     if(dateValue == "") {
     birthday.parentElement.classList.add('invalid')
+    return false;
     } else {
     birthday.parentElement.classList.remove('invalid')    
     }
 
     if (checkboxValue == false){
-       labelCheckbox.parentElement.classList.add('invalid')            
+       labelCheckbox.parentElement.classList.add('invalid')    
+       return false;
     } else {
         labelCheckbox.parentElement.classList.remove('invalid') 
-    }
+    }  
+    
+    success();
+}    
+)
+
+buttonBack.addEventListener('click', event => {
+    redirection()
+    location.reload();
+})
+
+function success(){
+    login.parentElement.classList.add('success')
+    register.parentElement.classList.add('redirection')
 }
 
-
-const button = document.getElementById('btn-register')
-
-button.addEventListener('click', (event) =>{
-    event.preventDefault()
-
-    validation()
-}) 
+function redirection(){
+login.parentElement.classList.remove('success')
+register.parentElement.classList.remove('redirection')
+location.reload();
+}
