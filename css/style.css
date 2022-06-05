@@ -5,7 +5,7 @@ body {
     font-family: 'Nunito', sans-serif;
 }
 
-.container {     
+.container-register, .container-login {     
     background: #ffffff;
     display: grid;
     max-width: 620px;
