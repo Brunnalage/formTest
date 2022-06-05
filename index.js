@@ -21,34 +21,29 @@ button.addEventListener('click', event => {
     if (nameCheck.test(nameValue)) {
         fullName.parentElement.classList.remove('invalid')
     } else {        
-        fullName.parentElement.classList.add('invalid')
-        return false;
+        fullName.parentElement.classList.add('invalid')        
     }
 
     if (emailCheck.test(emailValue)) {
         email.parentElement.classList.remove('invalid')
     } else {        
-        email.parentElement.classList.add('invalid')
-        return false;
+        email.parentElement.classList.add('invalid')        
     }
 
     if (phoneCheck.test(phoneValue)) {
         phone.parentElement.classList.remove('invalid')
     } else {        
-        phone.parentElement.classList.add('invalid')
-        return false;
+        phone.parentElement.classList.add('invalid')       
     }
 
     if (passwordCheck.test(passwordValue)) {
         password.parentElement.classList.remove('invalid')
     } else {        
-        password.parentElement.classList.add('invalid')
-        return false;
+        password.parentElement.classList.add('invalid')        
     }
 
     if(dateValue == "") {
-    birthday.parentElement.classList.add('invalid')
-    return false;
+    birthday.parentElement.classList.add('invalid')   
     } else {
     birthday.parentElement.classList.remove('invalid')    
     }
