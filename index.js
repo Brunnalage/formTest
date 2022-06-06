@@ -1,107 +1,125 @@
 const button = document.getElementById('btn-register')
 const buttonBack = document.getElementById("btn-back")
-const form = document.getElementById("Register-form")
 const userList = document.getElementById('User-list')
-const users = []
-var errors = false;  
-  
-   form.addEventListener('submit', (event) => {
-       event.preventDefault();
-       
-       var nameValue = document.getElementById('fullName').value;
-       var emailValue = document.getElementById('email').value;
-       var phoneValue = document.getElementById('phone').value;
-       var passwordValue = document.getElementById('password').value;
-       var dateValue = document.getElementById('birthday').value;
-       var checkboxValue = document.getElementById('checkbox').checked;
-      
-       var nameCheck = /^[a-zA-Z ]{2,30}$/;
-       var emailCheck = /^[\w.-]+@[\w-]+\.[\w.-]+$/;
-       var phoneCheck = /^\(?([0-9]{2})\)?[-.]?([0-9]{5})[-. ]?([0-9]{4})$/
-       var passwordCheck = /^(?=.*[0-9])(?!.*[ !@#%^&*_=+-]).{6,9}$/;    
-         
-    
-    if (nameCheck.test(nameValue)) {
-        fullName.parentElement.classList.remove('invalid')       
-    } else {        
-        fullName.parentElement.classList.add('invalid')                            
-    }
+const users = [];
 
-    if (emailCheck.test(emailValue)) {
-        email.parentElement.classList.remove('invalid')        
-    } else {        
-        email.parentElement.classList.add('invalid')             
-    }
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    var nameValue = document.getElementById('fullName').value;
+    var emailValue = document.getElementById('email').value;
+    var phoneValue = document.getElementById('phone').value;
+    var passwordValue = document.getElementById('password').value;
+    var birthdayValue = document.getElementById('birthday').value;
+    var checkboxValue = document.getElementById('checkbox').checked;
+    var resfName = validateName(nameValue);
+    var resfEmail = validateEmail(emailValue);
+    var resfPhone = validatePhone(phoneValue);
+    var resfPassword = validatePassword(passwordValue);
 
-    if (phoneCheck.test(phoneValue)) {
-        phone.parentElement.classList.remove('invalid')       
-    } else {        
-        phone.parentElement.classList.add('invalid')          
-    }
 
-    if (passwordCheck.test(passwordValue)) {
-        password.parentElement.classList.remove('invalid')       
-    } else {        
-        password.parentElement.classList.add('invalid')              
-    }
+    console.log(nameValue)
+    console.log(birthdayValue)
 
-    if(dateValue == "") {
-    birthday.parentElement.classList.add('invalid')      
+
+    if (!resfName) {
+        fullName.parentElement.classList.add('invalid')
     } else {
-    birthday.parentElement.classList.remove('invalid') 
-    errors = false    
+        fullName.parentElement.classList.remove('invalid')
     }
 
-    if (checkboxValue == false){
-       labelCheckbox.parentElement.classList.add('invalid')           
+    if (!resfEmail) {
+        email.parentElement.classList.add('invalid')
     } else {
-        labelCheckbox.parentElement.classList.remove('invalid') 
-        errors = false
-    }        
-      })    
+        email.parentElement.classList.remove('invalid')
+    }
 
+    if (!resfPhone) {
+        phone.parentElement.classList.add('invalid')
+    } else {
+        phone.parentElement.classList.remove('invalid')
+    }
 
+    if (!resfPassword) {
+        password.parentElement.classList.add('invalid')
+    } else {
+        password.parentElement.classList.remove('invalid')
+    }
+
+    if (!checkboxValue) {
+        labelCheckbox.parentElement.classList.add('invalid')
+    } else {
+        labelCheckbox.parentElement.classList.remove('invalid')
+    }
+
+    if (birthdayValue == "") {
+        birthday.parentElement.classList.add('invalid')
+    } else {
+        birthday.parentElement.classList.remove('invalid')
+        resfBirthday = true;
+    }
+
+    if (resfName && resfEmail && resfPhone && resfPassword && resfBirthday && checkboxValue) {
+            success()
+
+            const name = event.target.elements['fullName']
+            const email = event.target.elements['email']
+            const phone = event.target.elements['phone']
+            const password = event.target.elements['password']
+            const birthday = event.target.elements['birthday']
+            const checkbox = event.target.elements['checkbox']
+
+            registerUser(name.value, email.value, phone.value, password.value, birthday.value, checkbox.value)
+        }
+    }
+)
+
+function validateName(value) {
+    var nameCheck = /^[a-zA-Z ]{2,30}$/.test(value);
+    return nameCheck;
+}
+
+function validateEmail(value) {
+    var emailCheck = /^[\w.-]+@[\w-]+\.[\w.-]+$/.test(value);
+    return emailCheck;
+}
+
+function validatePhone(value) {
+    var phoneCheck = /^\(?([0-9]{2})\)?[-.]?([0-9]{5})[-. ]?([0-9]{4})$/.test(value);
+    return phoneCheck;
+}
+
+function validatePassword(value) {
+    var passwordCheck = /^(?=.*[0-9])(?!.*[ !@#%^&*_=+-]).{6,9}$/.test(value);
+    return passwordCheck;
+}
+
+function validateCheckbox() {
+    if (checkbox == true) {
+        return checkboxValue;
+    }
+}
 buttonBack.addEventListener('click', event => {
     redirection()
-    location.reload();
+    document.location.reload();
 })
 
-function success(){
+function success() {
     login.parentElement.classList.add('success')
     register.parentElement.classList.add('redirection')
 }
 
-function redirection(){
-login.parentElement.classList.remove('success')
-register.parentElement.classList.remove('redirection')
-location.reload();
+function redirection() {
+    login.parentElement.classList.remove('success')
+    register.parentElement.classList.remove('redirection')
+    location.reload();
 }
 
 /*Local Storage*/
 
-
-form.addEventListener("submit", (e) => {
-    e.preventDefault()
-    registerUser(event.target.elements['fullName'].value, event.target.elements['email'].value, event.target.elements['phone'].value, 
-    e.target.elements['password'].value, event.target.elements['birthday'].value, event.target.elements['checkbox'].value )      
-
-    e.target.elements['fullName'.value] = ""
-    e.target.elements['email'].value = ""
-    e.target.elements['phone'].value = ""
-    e.target.elements['password'].value = ""
-    e.target.elements['birthday'].value = ""
-    e.target.elements['checkbox'].value = ""
-}
-    )
-
-function registerUser (fullName, email, phone, password, birthday, checkbox){
+function registerUser(fullName, email, phone, password, birthday, checkbox) {
 
     const newUser = document.createElement('li')
     newUser.classList.add("user")
-
-    const userID = document.createElement('number')
-   
-    newUser.appendChild(userID)      
 
     userList.appendChild(newUser)
 
@@ -113,7 +131,6 @@ function registerUser (fullName, email, phone, password, birthday, checkbox){
         "birthday": birthday,
         "checkbox": checkbox,
     }
-    
     users.push(currentUser)
-    localStorage.setItem("user", JSON.stringify(users))  
+    localStorage.setItem('user', JSON.stringify(users))
 }
