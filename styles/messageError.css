@@ -1,0 +1,10 @@
+.error{
+    visibility: hidden;
+}
+
+.invalid  .error {      
+    visibility:visible;
+    color: #ff8e8e;
+    font-size: 0.825em;
+    margin-left: 0.5rem;
+}
